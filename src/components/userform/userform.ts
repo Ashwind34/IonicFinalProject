@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { UserserviceProvider } from '../../providers/userservice/userservice';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
@@ -17,7 +17,7 @@ export class UserformComponent {
   }
 
   goToHome() {
-    this.navCtrl.push(HomePage)
+    this.navCtrl.setRoot(HomePage)
     this.userServ.isLoggedIn = true;
     console.log(this.userServ.isLoggedIn)
     console.log('Username: ' + this.userServ.user.username)
