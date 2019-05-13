@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UserserviceProvider } from '../../providers/userservice/userservice';
+import { NavController } from 'ionic-angular';
+import { HomePage } from '../../pages/home/home';
 
-/**
- * Generated class for the UserformComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'userform',
-  templateUrl: 'userform.html'
+  templateUrl: 'userform.html',
+  providers: [UserserviceProvider]
 })
 export class UserformComponent {
 
-  text: string;
+  @Input() title: string;
 
-  constructor() {
+  constructor(public userServ: UserserviceProvider, public navCtrl: NavController) {
     console.log('Hello UserformComponent Component');
-    this.text = 'Hello World';
+  }
+
+  goToHome() {
+    this.navCtrl.push(HomePage)
+    this.userServ.isLoggedIn = true;
+    console.log(this.userServ.isLoggedIn)
+    console.log('Username: ' + this.userServ.user.username)
+    console.log('Password: ' + this. userServ.user.password)
   }
 
 }

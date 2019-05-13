@@ -1,4 +1,25 @@
-<!-- Generated template for the UserformComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-grid>
+  <ion-row justify-content-center>
+    <ion-col col-md-4> 
+      <div  class='form-container'>
+        <h1 class='center'><u>Please Login</u></h1>
+        <form action='' method='POST' autocomplete='off'>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input type='text' [(ngModel)]='userServ.user.username' name='email' required></ion-input>
+            </ion-item>
+            <br>
+            <ion-item>
+              <ion-label stacked>Password</ion-label>
+              <ion-input type='password' [(ngModel)]='userServ.user.password' name ='password' required></ion-input>
+            </ion-item>
+            <div class='center'>
+              <button ion-button (click)='goToHome()' [disabled] = "userServ.user.username && userServ.user.password ? false : true">{{title}}</button>
+            </div>
+          </ion-list>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
