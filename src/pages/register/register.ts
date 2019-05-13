@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
+  title: string = 'Register'
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
