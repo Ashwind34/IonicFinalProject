@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HeaderComponent } from '../components/header/header';
+import { UserformComponent } from '../components/userform/userform';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from '../components/header/header';
     ListPage,
     LoginPage,
     RegisterPage,
-    HeaderComponent
+    HeaderComponent,
+    UserformComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { HeaderComponent } from '../components/header/header';
     ListPage,
     LoginPage,
     RegisterPage,
-    HeaderComponent
+    HeaderComponent,
+    UserformComponent
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,37 @@
+.form-container {
+    border: solid 2px black;
+    border-radius: 5%;
+    background-color: white;
+    padding: 2rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+.background {
+    background-image:url("../assets/imgs/postit3.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+.button-md {
+    margin: 2.5rem;
+}
+
+.item-input .label {
+    color: black;
+    font-style: italic;
+}
+
+.label-md[stacked] .label-ios[stacked] {
+    font-size: 1.5rem;
+}
