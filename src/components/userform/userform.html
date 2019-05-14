@@ -7,7 +7,7 @@
           <ion-list>
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input type='text' [(ngModel)]='userServ.user.username' name='email' required></ion-input>
+              <ion-input type='text' [(ngModel)]='userServ.user.email' name='email' required></ion-input>
             </ion-item>
             <br>
             <ion-item>
@@ -15,7 +15,7 @@
               <ion-input type='password' [(ngModel)]='userServ.user.password' name ='password' required></ion-input>
             </ion-item>
             <div class='center'>
-              <button ion-button (click)='goToHome()' [disabled] = "userServ.user.username && userServ.user.password ? false : true">{{title}}</button>
+              <button ion-button (click)='submitNav()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">{{title}}</button>
             </div>
           </ion-list>
         </form>
