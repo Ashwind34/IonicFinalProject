@@ -4,18 +4,18 @@
     padding: 2rem;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5rem;
-}
-
 .background {
     background-image:url("../assets/imgs/postit3.jpg");
     background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
 }
 
 h1 {

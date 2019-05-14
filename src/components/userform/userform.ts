@@ -10,8 +10,6 @@ import { HomePage } from '../../pages/home/home';
 })
 export class UserformComponent {
 
-  @Input() title: string;
-
   userApiResponse;
 
   errorMessage;

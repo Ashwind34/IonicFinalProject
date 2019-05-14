@@ -2,7 +2,6 @@
   <ion-row justify-content-center>
     <ion-col col-md-4> 
       <div  class='form-container'>
-        <h1 class='center'><u>Please {{title}}</u></h1>
         <form action='' method='POST' autocomplete='off'>
           <ion-list>
             <ion-item>
@@ -15,7 +14,7 @@
               <ion-input type='password' [(ngModel)]='userServ.user.password' name ='password' required></ion-input>
             </ion-item>
             <div class='center'>
-              <button ion-button (click)='title = Register ? registerUser() : loginUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">{{title}}</button>
+              <button ion-button (click)='title = Register ? registerUser() : loginUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">Submit</button>
             </div>
             <div class='center'>
               <p *ngIf='userServ.errorMessage'>{{ userServ.errorMessage }}</p>
