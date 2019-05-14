@@ -1,8 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserserviceProvider } from '../../providers/userservice/userservice';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
-import { DeclareFunctionStmt } from '@angular/compiler';
 
 @Component({
   selector: 'userform',
@@ -22,16 +21,54 @@ export class UserformComponent {
     this.userServ.isLoggedIn = true;
     console.log(this.userServ.isLoggedIn)
     console.log('Username: ' + this.userServ.user.username)
-    console.log('Password: ' + this. userServ.user.password)
+    console.log('Password: ' + this.userServ.user.password)
   }  
 
-  registerNav(){
-    this.userServ.registerUser();
-    this.goToHome();
+  registerUser() { 
+    this.userServ.errorMessage = '';
+    this.userServ.register()
+    .subscribe(
+      (response: any) => {
+        this.userServ.user = response;
+        console.log(this.userServ.user);
+        this.userServ.user = {};
+        sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('userId', response.userId);
+        this.userServ.token = sessionStorage.getItem('token')
+        console.log(this.userServ.token)
+      }, error => {
+        this.userServ.errorMessage = error.status;
+        console.log('Error Status Code: ' + this.userServ.errorMessage);
+        console.log(error);
+      }, () => {
+        if (!this.userServ.errorMessage) {
+          this.goToHome()
+        }
+      }
+    );
   }
 
-  loginNav() {
-
+  loginUser() {
+    this.userServ.errorMessage = '';
+    this.userServ.login()
+    .subscribe(
+      (response: any) => {
+        this.userServ.user = response;
+        console.log(this.userServ.user);
+        this.userServ.user = '';
+        sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('userId', response.userId);
+        this.userServ.token = sessionStorage.getItem('token')
+        console.log(this.userServ.token)
+      }, error => {
+        this.userServ.errorMessage = 'Error Status Code: ' + error.status;
+        console.log(this.userServ.errorMessage);
+        console.log(error);
+      }, () => {
+        if (!this.userServ.errorMessage) {
+          this.goToHome()
+        }
+      }
+    );
   }
-
 }

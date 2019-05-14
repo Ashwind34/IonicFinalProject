@@ -15,7 +15,10 @@
               <ion-input type='password' [(ngModel)]='userServ.user.password' name ='password' required></ion-input>
             </ion-item>
             <div class='center'>
-              <button ion-button (click)='submitNav()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">{{title}}</button>
+              <button ion-button (click)='loginUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">{{title}}</button>
+            </div>
+            <div>
+              <p *ngIf='userServ.errorMessage'>{{ userServ.errorMessage }}</p>
             </div>
           </ion-list>
         </form>
