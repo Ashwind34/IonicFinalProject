@@ -10,8 +10,6 @@ export class UserserviceProvider {
 
   token;
 
-  errorMessage;
-
   user: any = {
     email: '',
     password: ''

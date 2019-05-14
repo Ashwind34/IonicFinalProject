@@ -17,7 +17,7 @@
             <div class='center'>
               <button ion-button (click)='title = Register ? registerUser() : loginUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">{{title}}</button>
             </div>
-            <div>
+            <div class='center'>
               <p *ngIf='userServ.errorMessage'>{{ userServ.errorMessage }}</p>
             </div>
           </ion-list>
