@@ -35,7 +35,7 @@ export class UserformComponent {
         this.userServ.token = sessionStorage.getItem('token')
         console.log(this.userServ.token)
       }, error => {
-        this.errorMessage = 'Error Status Code: ' + error.status;
+        this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
         console.log(this.errorMessage);
         console.log(error);
       }, () => {
@@ -60,7 +60,7 @@ export class UserformComponent {
         this.userServ.token = sessionStorage.getItem('token')
         console.log(this.userServ.token)
       }, error => {
-        this.errorMessage = 'Error Status Code: ' + error.status;
+        this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
         console.log(this.errorMessage);
         console.log(error);
       }, () => {

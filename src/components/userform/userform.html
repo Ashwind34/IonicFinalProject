@@ -1,7 +1,7 @@
 <ion-grid>
   <ion-row justify-content-center>
     <ion-col col-md-4> 
-      <div  class='form-container'>
+      <div class='form-container'>
         <form action='' method='POST' autocomplete='off'>
           <ion-list>
             <ion-item>
@@ -17,7 +17,7 @@
               <button ion-button (click)='title = Register ? registerUser() : loginUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">Submit</button>
             </div>
             <div class='center'>
-              <p *ngIf='userServ.errorMessage'>{{ userServ.errorMessage }}</p>
+              <p *ngIf='errorMessage'>{{ errorMessage }}</p>
             </div>
           </ion-list>
         </form>
