@@ -9,8 +9,6 @@ export class HeaderComponent {
 
   @Input() title: string;
 
-  constructor() {
-    console.log('Hello HeaderComponent Component');
-  }
+  constructor() {}
 
 }

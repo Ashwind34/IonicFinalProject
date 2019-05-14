@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,7 +19,6 @@ import { UserserviceProvider } from '../providers/userservice/userservice';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     HeaderComponent,
@@ -35,7 +33,6 @@ import { UserserviceProvider } from '../providers/userservice/userservice';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     HeaderComponent,
