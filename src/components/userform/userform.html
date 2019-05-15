@@ -17,6 +17,9 @@
               <button ion-button (click)='submitUser()' [disabled] = "userServ.user.email && userServ.user.password ? false : true">Submit</button>
             </div>
             <div class='center'>
+              <a *ngIf="title === 'Login'" (click)='goToRegister()'>Click Here to Register</a>
+            </div>          
+            <div class='center'>
               <p *ngIf='errorMessage'>{{ errorMessage }}</p>
             </div>
           </ion-list>

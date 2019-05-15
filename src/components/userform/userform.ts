@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { UserserviceProvider } from '../../providers/userservice/userservice';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
+import { RegisterPage } from '../../pages/register/register';
 
 @Component({
   selector: 'userform',
@@ -21,6 +22,10 @@ export class UserformComponent {
   goToHome() {
     this.navCtrl.setRoot(HomePage)
   }  
+
+  goToRegister() {
+    this.navCtrl.setRoot(RegisterPage)
+  }
 
   // method to handle which http request url to use based on which page the form is rendered on
 
