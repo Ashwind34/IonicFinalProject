@@ -8,6 +8,6 @@
   <br>
   <button ion-button (click)='getPermission()'>Request Permission</button>
   <button ion-button (click)='startListening()'>Start Recording</button>
-  <button ion-button (click)='stopListening()'>Stop Recording</button>
+  <button ion-button (click)='stopListening()' *ngIf='isIos()'>Stop Recording</button>
 
 </ion-content>

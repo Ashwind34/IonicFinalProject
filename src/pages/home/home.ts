@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { Platform } from 'ionic-angular';
 
 
 @Component({
@@ -11,8 +12,15 @@ export class HomePage {
 
   title: string = 'Home'
 
-  constructor(public navCtrl: NavController, private speech: SpeechRecognition) {
+  constructor(public navCtrl: NavController,
+              private plt: Platform, 
+              private speech: SpeechRecognition) {
 
+  }
+
+  isIos() {
+    // return this.plt.is('ios');
+    return true;
   }
 
   getPermission() {
