@@ -15,4 +15,16 @@ export class HomePage {
 
   }
 
+  getPermission() {
+    console.log('Get permission')
+  }
+
+  startListening() {
+    console.log('Start Listening')
+  }
+
+  stopListening() {
+    console.log('Stop Listening')
+  }
+
 }
