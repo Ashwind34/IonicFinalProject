@@ -10,11 +10,13 @@ import { HomePage } from '../../pages/home/home';
 })
 export class UserformComponent {
 
+  @Input() title: string;
+
   userApiResponse;
 
   errorMessage;
 
-  constructor(public userServ: UserserviceProvider, public navCtrl: NavController) { }
+  constructor(public userServ: UserserviceProvider, public navCtrl: NavController) {}
 
   goToHome() {
     this.navCtrl.setRoot(HomePage)
