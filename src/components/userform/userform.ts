@@ -22,6 +22,14 @@ export class UserformComponent {
     this.navCtrl.setRoot(HomePage)
   }  
 
+  setUser() {
+    if (this.title === 'Register'){
+      this.registerUser()
+    } else {
+      this.loginUser()
+    }
+  }
+
   //CONSIDER RE-FACTORING TO INCLUDE ONLY ONE METHOD THAT TAKES USERSERV.LOGIN() OR USERSERV.REGISTER() AS AN ARGUMENT
 
   registerUser() { 
@@ -58,6 +66,7 @@ export class UserformComponent {
         this.userServ.token = sessionStorage.getItem('token')
         console.log(this.userServ.token)
       }, error => {
+        console.log(error)
         this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
       }, () => {
         if (!this.errorMessage) {
