@@ -15,7 +15,7 @@ export class UserserviceProvider {
     password: ''
   }
 
-  constructor(public http: HttpClient) {  }
+  constructor(public http: HttpClient) {}
 
   register() {
     return this.http.post(this.userUrl, this.user)

@@ -20,6 +20,8 @@ export class UserformComponent {
     this.navCtrl.setRoot(HomePage)
   }  
 
+  //CONSIDER RE-FACTORING TO INCLUDE ONLY ONE METHOD THAT TAKES USERSERV.LOGIN() OR USERSERV.REGISTER() AS AN ARGUMENT
+
   registerUser() { 
     this.errorMessage = '';
     this.userServ.register()
@@ -52,6 +54,7 @@ export class UserformComponent {
         // MAY NOT NEED TO STORE USERID IN SESSIONSTORAGE
         sessionStorage.setItem('userId', response.userId);
         this.userServ.token = sessionStorage.getItem('token')
+        console.log(this.userServ.token)
       }, error => {
         this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
       }, () => {

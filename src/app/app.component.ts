@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
+import { UserserviceProvider } from '../providers/userservice/userservice';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,7 +19,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen,
+              public userServ: UserserviceProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -42,5 +47,13 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    this.userServ.emptyLogin();
+    this.nav.setRoot(LoginPage);
+    console.log(this.userServ.user);
+    console.log(this.userServ.isLoggedIn)
+    console.log(this.userServ.token)
   }
 }
