@@ -14,6 +14,7 @@ import { RegisterPage } from '../pages/register/register';
 import { HeaderComponent } from '../components/header/header';
 import { UserformComponent } from '../components/userform/userform';
 import { UserserviceProvider } from '../providers/userservice/userservice';
+import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { UserserviceProvider } from '../providers/userservice/userservice';
   providers: [
     StatusBar,
     SplashScreen,
+    SpeechRecognition,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserserviceProvider
   ]
