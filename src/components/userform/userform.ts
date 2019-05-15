@@ -22,19 +22,21 @@ export class UserformComponent {
     this.navCtrl.setRoot(HomePage)
   }  
 
-  setUser() {
+  // method to handle which http request url to use based on which page the form is rendered on
+
+  submitUser() {
     if (this.title === 'Register'){
-      this.registerUser()
+      this.setUser(this.userServ.register())
     } else {
-      this.loginUser()
+      this.setUser(this.userServ.login())
     }
   }
 
-  //CONSIDER RE-FACTORING TO INCLUDE ONLY ONE METHOD THAT TAKES USERSERV.LOGIN() OR USERSERV.REGISTER() AS AN ARGUMENT
+  // method to handle api response, takes http request method from provider as an argument
 
-  registerUser() { 
+  setUser(apiMethod) { 
     this.errorMessage = '';
-    this.userServ.register()
+    apiMethod
     .subscribe(
       (response: any) => {
         this.userApiResponse = response;
@@ -44,29 +46,6 @@ export class UserformComponent {
         sessionStorage.setItem('userId', response.userId);
         this.userServ.token = sessionStorage.getItem('token')
       }, error => {
-        this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
-      }, () => {
-        if (!this.errorMessage) {
-          this.goToHome()
-        }
-      }
-    );
-  }
-
-  loginUser() {
-    this.errorMessage = '';
-    this.userServ.login()
-    .subscribe(
-      (response: any) => {
-        this.userApiResponse = response;
-        this.userServ.isLoggedIn = true;
-        sessionStorage.setItem('token', response.token);
-        // MAY NOT NEED TO STORE USERID IN SESSIONSTORAGE
-        sessionStorage.setItem('userId', response.userId);
-        this.userServ.token = sessionStorage.getItem('token')
-        console.log(this.userServ.token)
-      }, error => {
-        console.log(error)
         this.errorMessage = 'Error Status Code: ' + error.status + ' (' + error.statusText + ')';
       }, () => {
         if (!this.errorMessage) {
