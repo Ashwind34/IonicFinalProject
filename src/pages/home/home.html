@@ -7,7 +7,17 @@
   <h3>This is where the speech-to-text will go</h3>
   <br>
   <button ion-button (click)='getPermission()'>Request Permission</button>
-  <button ion-button (click)='startListening()'>Start Recording</button>
-  <button ion-button (click)='stopListening()' *ngIf='isIos()'>Stop Recording</button>
+  <button ion-button (click)='beginListening()'>Start Recording</button>
+  <button ion-button (click)='endListening()' *ngIf='!isIos'>Stop Recording</button>
 
+  <ion-card>
+    <ion-card-header>This is what I understood...</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let match of matches">
+          {{ match }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
