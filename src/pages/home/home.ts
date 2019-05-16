@@ -12,6 +12,12 @@ export class HomePage {
 
   title: string = 'Home'
 
+  matches: String[];
+
+  permission: boolean = false;
+
+  isListening: boolean = true;
+
   constructor(public navCtrl: NavController,
               private plt: Platform, 
               private speech: SpeechRecognition) {
